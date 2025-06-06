@@ -1,18 +1,19 @@
 clear all
 
+% Definition of Green and Ampt parameters:
 K_s = 0.7;           % [cm/h] hydraulic conductivty at saturation
 Psi = 11.6;          % [cm] suction
-theta_i = 5.6/100;   % initial water content
-theta_s = 15.5/100;  % saturated water content (porosity)
+theta_i = 5.6/100;   % [-] initial water content
+theta_s = 15.5/100;  % [-] saturated water content (porosity)
 
-C0=200;              % Initial concentration of pollutant [mg/kg]
+C0=200;              % Initial concentration of pollutant [mg/kg] [200 for arsenic, 500 for nitrate]
 H = 20;              % Total deposit height [m]
-p=2;                 % Pollutant [1=nitrate, 2=Arsenic]
+p=2;                 % Pollutant type [1=nitrate, 2=Arsenic]
 tr=1;                % Timestep [h]
 rho= 2670;           % Materials density [kg/m3]
 
-station = "Airolo";         %Change between "Biasca" and "Airolo"
-timescale= "March 2024";     %Change between "June 2024", "March 2024" and "Year 2024"
+station = "Airolo";         %  Change between "Biasca" and "Airolo"
+timescale= "March 2024";     % Change between "June 2024", "March 2024" or "Year 2024"
 
 GreenAmpt_output = GreenAmpt(station, timescale, K_s, Psi, theta_i, theta_s);
 
